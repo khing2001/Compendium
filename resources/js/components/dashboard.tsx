@@ -25,30 +25,26 @@ import {
 interface Task {
   id: string;
   title: string;
-  category: 'Design' | 'Development' | 'Marketing';
+  category: 'Academic' | 'Career' | 'Health' | 'Finance';
   priority: 'High' | 'Medium' | 'Low';
   status: 'Todo' | 'In Progress' | 'Done';
   dueDate: string;
 }
 
 const CATEGORY_COLORS = {
-  Design: 'bg-purple-100 text-purple-700',
-  Development: 'bg-blue-100 text-blue-700',
-  Marketing: 'bg-orange-100 text-orange-700'
+  Academic: 'bg-purple-100 text-purple-700',
+  Career: 'bg-blue-100 text-blue-700',
+  Health: 'bg-yellow-100 text-yellow-700',
+  Finance: 'bg-orange-100 text-orange-700',
 };
 
-const PRIORITY_COLORS = {
-  High: 'text-red-500',
-  Medium: 'text-yellow-500',
-  Low: 'text-green-500'
-};
 
 // --- Mock Data ---
 const INITIAL_TASKS: Task[] = [
-  { id: '1', title: 'Redesign Homepage', category: 'Design', priority: 'High', status: 'In Progress', dueDate: '2024-10-24' },
-  { id: '2', title: 'Fix API Latency', category: 'Development', priority: 'High', status: 'Todo', dueDate: '2024-10-25' },
-  { id: '3', title: 'Draft Newsletter', category: 'Marketing', priority: 'Medium', status: 'Done', dueDate: '2024-10-20' },
-  { id: '4', title: 'Update User Profile', category: 'Development', priority: 'Low', status: 'In Progress', dueDate: '2024-10-26' },
+  { id: '1', title: 'Redesign Homepage', category: 'Academic', priority: 'High', status: 'In Progress', dueDate: '2024-10-24' },
+  { id: '2', title: 'Fix API Latency', category: 'Career', priority: 'High', status: 'Todo', dueDate: '2024-10-25' },
+  { id: '3', title: 'Draft Newsletter', category: 'Health', priority: 'Medium', status: 'Done', dueDate: '2024-10-20' },
+  { id: '4', title: 'Update User Profile', category: 'Finance', priority: 'Low', status: 'In Progress', dueDate: '2024-10-26' },
 ];
 
 const CHART_DATA = [
@@ -69,8 +65,8 @@ const ProgressTracker = () => {
   // Form State
   const [formData, setFormData] = useState({
     title: '',
-    category: 'Development',
-    priority: 'Medium',
+    category: '',
+    priority: '',
     dueDate: ''
   });
 
@@ -91,7 +87,7 @@ const ProgressTracker = () => {
       });
     } else {
       setEditingTask(null);
-      setFormData({ title: '', category: 'Development', priority: 'Medium', dueDate: '' });
+      setFormData({ title: '', category: '', priority: '', dueDate: '' });
     }
     setIsModalOpen(true);
   };
@@ -130,7 +126,7 @@ const ProgressTracker = () => {
         {/* --- Header Section --- */}
         <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">My Dashboard</h1>
+            <h1 className="text-3xl font-bold text-slate-900 mb-2">Compendium Add-ons</h1>
             <p className="text-slate-500 flex items-center gap-2">
               <Layout size={18} />
               You have <span className="font-bold text-slate-800">{activeTasksCount} active tasks</span> today.
@@ -293,9 +289,10 @@ const ProgressTracker = () => {
                     onChange={(e) => setFormData({...formData, category: e.target.value as any})}
                     className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-white"
                   >
-                    <option>Development</option>
-                    <option>Design</option>
-                    <option>Marketing</option>
+                    <option>Academic</option>
+                    <option>Career</option>
+                    <option>Health</option>
+                    <option>Finance</option>
                   </select>
                 </div>
                 <div>

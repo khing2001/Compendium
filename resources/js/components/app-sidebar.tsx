@@ -13,7 +13,7 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Biohazard, BookOpen, Folder, LayoutGrid, SquareUserRound } from 'lucide-react';
+import { Biohazard, BookOpen, BookUp, BookUp2, Folder, Github, GitMerge, LayoutGrid, Mail, SquareUserRound } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -26,15 +26,25 @@ const mainNavItems: NavItem[] = [
 
 const footerNavItems: NavItem[] = [
     {
-        title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
-        icon: Folder,
+        title: 'GitHub',
+        href: 'https://github.com/khing2001',
+        icon: Github,
     },
     {
         title: 'Documentation',
         href: 'https://laravel.com/docs/starter-kits#react',
         icon: BookOpen,
     },
+    {
+        title: 'Gmail',
+        href: 'https://mail.google.com/mail/u/0/#inbox',
+        icon: Mail,
+    },
+    {
+        title: 'Leetcode',
+        href: 'https://leetcode.com/problemset/all-code-essentials/',
+        icon: BookUp
+    }
 ];
 
 export function AppSidebar() {

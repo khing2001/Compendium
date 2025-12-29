@@ -20,11 +20,6 @@ class ProgressController extends Controller
         ]);
     }
 
-    // For testing purposes. This uses a different database (Test) and not the progress database.
-    public function test(){
-        return Inertia::render('test', []);
-    }
-
     public function complete()
     {
         return Inertia::render('progress/complete', ['message' => 'Task completed!',]);
