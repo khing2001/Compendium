@@ -13,7 +13,7 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Biohazard, BookOpen, BookUp, BookUp2, Folder, Github, GitMerge, LayoutGrid, Mail, SquareUserRound } from 'lucide-react';
+import { Biohazard, BookOpen, BookText, BookUp, BookUp2, Folder, Github, GitMerge, LayoutGrid, Mail, SquareUserRound } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -21,6 +21,11 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: dashboard(),
         icon: LayoutGrid,
+    },
+    {
+        title: 'Journal',
+        href: '/journal',
+        icon: BookText,
     },
 ];
 

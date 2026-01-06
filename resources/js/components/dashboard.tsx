@@ -26,7 +26,10 @@ import {
 export interface Task {
   id: number;
   title: string;
-  category: string;
+  category: {
+    name: string,
+    color: string,
+  };
   priority: 'High' | 'Medium' | 'Low';
   status: 'Todo' | 'In Progress' | 'Done';
   dueDate: string;
@@ -46,7 +49,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   Academic: 'bg-purple-100 text-purple-700',
   Career: 'bg-blue-100 text-blue-700',
   Health: 'bg-yellow-100 text-yellow-700',
-  Finance: 'bg-orange-100 text-orange-700',
+  Finance: 'bg-green-100 text-green-700',
 };
 
 const CHART_DATA = [
@@ -86,7 +89,7 @@ const ProgressTracker = ({initialTasks, chartData}: Props) => {
       setEditingTask(task);
       setFormData({
         title: task.title,
-        category: task.category,
+        category: task.category.name,
         priority: task.priority,
         dueDate: task.dueDate
       });
@@ -223,8 +226,14 @@ const ProgressTracker = ({initialTasks, chartData}: Props) => {
                           {task.title}
                         </h4>
                         <div className="flex items-center gap-3 mt-1">
-                          <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${CATEGORY_COLORS[task.category]} || bg-gray-100 text-gray-600`}>
-                            {task.category}
+                          <span 
+                          className="text-[10px] px-2 py-0.5 rounded font-bold uppercase text-slate-700 border border-slate-200"
+                            style={{ 
+                              backgroundColor: task.category.color,
+                              color: `color-mix(in srgb, ${task.category.color}, black 70%)`
+                            }}
+                          >
+                            {task.category.name}
                           </span>
                           <span className="flex items-center gap-1 text-xs text-slate-400">
                             <Calendar size={12} /> {task.dueDate}

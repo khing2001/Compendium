@@ -24,7 +24,10 @@ class DashboardController extends Controller
                 return [
                     'id'=> $task->id,
                     'title' => $task->title,
-                    'category' => $task->category->name,
+                    'category' => [
+                        'name' => $task->category->name,
+                        'color' => $task->category->color_hex,
+                    ],
                     'priority' => $task->priority,
                     'status' => $task->status,
                     'dueDate' => $task->due_date
