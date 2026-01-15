@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import AppLayout from '@/layouts/app-layout';
-import { useForm, Head } from '@inertiajs/react';
 import { 
     BookOpen, 
     Heart, 

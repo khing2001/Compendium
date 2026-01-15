@@ -1,17 +1,15 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { router } from '@inertiajs/react';
 import { 
   BarChart, 
   Bar, 
-  XAxis, 
-  YAxis, 
+  XAxis,  
   Tooltip, 
   ResponsiveContainer, 
   Cell 
 } from 'recharts';
 import { 
   Plus, 
-  MoreVertical, 
   Calendar, 
   CheckCircle2, 
   Circle, 
@@ -287,7 +285,7 @@ const ProgressTracker = ({initialTasks, chartData}: Props) => {
                   <label className="block text-sm font-semibold text-slate-700 mb-1">Category</label>
                   <select 
                     value={formData.category}
-                    onChange={(e) => setFormData({...formData, category: e.target.value as any})}
+                    onChange={(e) => setFormData({...formData, category: e.target.value as string})}
                     className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-white"
                   >
                     <option>Academic</option>

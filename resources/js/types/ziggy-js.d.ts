@@ -1,4 +1,4 @@
 declare module 'ziggy-js' {
-    const route: any;
+    const route: string;
     export default route;
 }
