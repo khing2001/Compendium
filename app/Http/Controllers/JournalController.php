@@ -18,7 +18,7 @@ class JournalController extends Controller
         return Inertia::render('journal', [
             'entries' => Journal::where('user_id', Auth::id())
             ->latest()
-            ->paginate(7)
+            ->paginate(5)
             ->map(function ($entry) {
                 return [
                     'id'=>$entry->id,
