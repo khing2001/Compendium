@@ -9,7 +9,8 @@ import {
     Calendar,
     PenLine,
     Edit2,
-    Trash2
+    Trash2,
+    Flame
 } from 'lucide-react';
 import { router } from '@inertiajs/react';
 
@@ -95,13 +96,23 @@ const JournalIndex = ({entries}: Props) => {
                             <PenLine size={18} />
                             Document your learning, feelings, and curiosity.
                         </p>
+                        
                     </div>
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-200 transition-all active:scale-95"
-                    >
-                        <Plus size={20} /> New Entry
-                    </button>
+                    <div className='flex items-center gap-3'>
+                        {/* --- Streak Badge --- */}
+                        <div className="flex items-center gap-2 px-4 py-2 bg-white border border-orange-200 text-orange-600 rounded-xl shadow-sm" title="Current Streak">
+                            <Flame size={16} className="fill-orange-500 text-orange-600" />
+                            <span className="font-bold text-sm tabular-nums">{2}</span>
+                            <span className="text-xs font-medium text-orange-400 uppercase tracking-wide hidden sm:inline">Days</span>
+                        </div>
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl font-semibold shadow-lg shadow-indigo-200 transition-all active:scale-95"
+                        >
+                            <Plus size={20} />
+                            <span className="hidden sm:inline">New Entry</span>
+                        </button>
+                    </div>
                 </header>
 
                 {/* --- Journal Grid --- */}
